@@ -4,7 +4,7 @@ export const productMeta = {
     desc: "Snipe token launches in < 400 ms. Zero custody, 0.75 % fee, built in Rust.",
   },
   dex: {
-    title: "Vortex Web DEX – Advanced Solana Trading",
+    title: "VortexChain Web DEX – Advanced Solana Trading",
     desc: "Non-custodial browser DEX with TWAP, analytics & deep liquidity routing.",
   },
   extension: {
@@ -12,11 +12,11 @@ export const productMeta = {
     desc: "Trade directly on launch pages, manage your portfolio on-the-fly.",
   },
   leaderboard: {
-    title: "Vortex Leaderboard – Track Trading Performance",
+    title: "VortexChain Leaderboard – Track Trading Performance",
     desc: "Compete with top traders, track PnL performance, and earn exclusive rewards.",
   },
   launchpad: {
-    title: "Vortex Launchpad – MiCA-Compliant Token Launch Platform",
+    title: "VortexChain Launchpad – MiCA-Compliant Token Launch Platform",
     desc: "Launch your Solana token in 24 hours with automated white-paper workflow and regulatory compliance.",
   },
 }

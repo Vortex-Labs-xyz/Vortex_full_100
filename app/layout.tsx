@@ -14,10 +14,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vortex.group"),
+  metadataBase: new URL("https://vortexchain.xyz"),
   title: {
-    default: "Non-Custodial Solana Trading Bot & DEX – Vortex",
-    template: "%s – Vortex",
+    default: "Non-Custodial Solana Trading Bot & DEX – VortexChain",
+    template: "%s – VortexChain",
   },
   description:
     "Trade on Solana at millisecond latency. Own your keys. Telegram bot · Web DEX · Chrome extension. MiCA-ready.",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   keywords: ["non-custodial solana bot", "telegram sniper bot", "solana mev", "copy trading", "miCA class 1 licence"],
   openGraph: {
     type: "website",
-    title: "Vortex – Non-Custodial Solana Trading",
+    title: "VortexChain – Non-Custodial Solana Trading",
     url: "/",
     images: "/og/default.png",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@vortex_group",
+    site: "@vortexchain_xyz",
   },
     generator: 'v0.dev'
 }
@@ -51,7 +51,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <link rel="alternate" type="application/rss+xml" href="/api/rss" title="Vortex Blog Feed" />
+        <link rel="alternate" type="application/rss+xml" href="/api/rss" title="VortexChain Blog Feed" />
         <Hreflang />
       </head>
       <body className={cn(inter.className, "bg-bg text-text")}>

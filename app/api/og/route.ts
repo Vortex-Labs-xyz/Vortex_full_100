@@ -5,7 +5,7 @@ export const runtime = "edge"
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url)
-    const title = searchParams.get("title") ?? "Vortex"
+    const title = searchParams.get("title") ?? "VortexChain"
 
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
       <rect fill="#050505" width="100%" height="100%"/>

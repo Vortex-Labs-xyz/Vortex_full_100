@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://vortex.group",
+  siteUrl: "https://vortexchain.xyz",
   generateRobotsTxt: true,
   exclude: ["/api/*"],
   // NOTE: `next-sitemap` automatically detects images (`<img>` tags) on your pages

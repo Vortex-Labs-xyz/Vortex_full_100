@@ -3,27 +3,18 @@
 import { User, Menu, X } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 
-const VortexLogo = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="text-text"
-  >
-    <path
-      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-      fill="currentColor"
-    />
-    <path
-      d="M12 12.5c-1.1 0-2.1.4-2.83 1.17l1.41 1.41c.39-.39.9-.68 1.42-.68s1.03.29 1.42.68l1.41-1.41C14.1 12.9 13.1 12.5 12 12.5zM12 7.5c-2.76 0-5 2.24-5 5h2c0-1.65 1.35-3 3-3s3 1.35 3 3h2c0-2.76-2.24-5-5-5z"
-      fill="currentColor"
-    />
-  </svg>
+const VortexChainLogo = () => (
+  <Image
+    src="/vortex-chain-logo.png"
+    alt="VortexChain Logo"
+    width={32}
+    height={32}
+    className="rounded-full"
+  />
 )
 
 function Header() {
@@ -42,8 +33,8 @@ function Header() {
               href="/" 
               className="flex items-center font-bold text-lg text-[#111] hover:scale-105 transition-transform duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20 rounded-full px-2 py-1"
             >
-            <VortexLogo />
-              <span className="ml-2">Vortex</span>
+              <VortexChainLogo />
+              <span className="ml-2">VortexChain</span>
             </Link>
 
             {/* Navigation - Right aligned */}

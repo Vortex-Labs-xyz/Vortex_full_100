@@ -17,7 +17,7 @@ export const products = [
     ctaText: "Coming soon",
     icons: ["/icons/raydium.png", "/icons/solana.png"],
     image: "/features/web-dex.png",
-    alt: "Raydium swap interface on Vortex Web DEX",
+    alt: "Raydium swap interface on VortexChain Web DEX",
   },
   {
     id: "extension",
@@ -27,7 +27,7 @@ export const products = [
     ctaText: "Coming soon",
     icons: ["/icons/chrome.png", "/icons/solana.png"],
     image: "/features/chrome-ext.png",
-    alt: "Vortex Chrome extension popup",
+    alt: "VortexChain Chrome extension popup",
   },
   {
     id: "leaderboard",
@@ -37,7 +37,7 @@ export const products = [
     ctaText: "Coming soon",
     icons: ["/icons/solana.png"],
     image: "/features/leaderboard.png",
-    alt: "Vortex trading leaderboard showing top users and their profits",
+    alt: "VortexChain trading leaderboard showing top users and their profits",
   },
   {
     id: "launchpad",
@@ -49,6 +49,6 @@ export const products = [
     image: "/features/launchpad.png",
     badge: "0.2% fee",
     isNew: true,
-    alt: "Vortex token launchpad interface",
+    alt: "VortexChain token launchpad interface",
   },
 ]

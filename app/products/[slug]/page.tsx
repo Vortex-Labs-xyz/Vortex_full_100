@@ -199,8 +199,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     },
     "provider": {
       "@type": "Organization",
-      "name": "Vortex",
-      "url": "https://vortex.com"
+      "name": "VortexChain",
+      "url": "https://vortexchain.xyz"
     }
   }
 

@@ -20,13 +20,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vortex.group" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://vortex.group/blog" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vortexchain.xyz" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://vortexchain.xyz/blog" },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://vortex.group/blog/${params.slug}`,
+        item: `https://vortexchain.xyz/blog/${params.slug}`,
       },
     ],
   }
@@ -93,7 +93,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <main className="bg-bg pt-24 sm:pt-32">
         <article>
           <header className="container mx-auto max-w-3xl px-4 text-center py-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Vortex Insights</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">VortexChain Insights</p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text leading-tight">{post.title}</h1>
             <p className="mt-4 text-textSub">{formattedDate}</p>
           </header>

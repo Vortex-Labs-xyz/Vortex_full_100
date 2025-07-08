@@ -41,7 +41,7 @@ export default function HeroSection() {
           <div className="absolute -inset-px rounded-xl bg-gradient-to-br from-accent/30 to-transparent opacity-50 blur-xl" />
           <Image
             src="/vortex-product-suite.png"
-            alt="Vortex product suite showing the Telegram bot, the Raydium Web DEX, and the Chrome Extension."
+            alt="VortexChain product suite showing the Telegram bot, the Raydium Web DEX, and the Chrome Extension."
             width={1200}
             height={800}
             className="relative w-full rounded-xl shadow-mock"

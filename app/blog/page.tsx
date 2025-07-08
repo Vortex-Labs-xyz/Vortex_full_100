@@ -39,7 +39,7 @@ export default function BlogIndexPage() {
       <main className="bg-bg pt-24 sm:pt-32">
         <div className="container mx-auto max-w-6xl px-4 py-16">
           <h1 className="text-4xl font-bold text-text mb-4">Blog</h1>
-          <p className="text-lg text-textSub mb-12">Insights, news, and technical deep dives from the Vortex team.</p>
+          <p className="text-lg text-textSub mb-12">Insights, news, and technical deep dives from the VortexChain team.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allPosts.map((post) => (
               <PostCard key={post.slug} post={post} />

@@ -2,13 +2,13 @@ export default function SeoSchemas() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Vortex Group",
-    url: "https://vortex.group",
-    logo: "https://vortex.group/logo.svg",
+    name: "VortexChain Group",
+    url: "https://vortexchain.xyz",
+    logo: "https://vortexchain.xyz/vortex-chain-logo.png",
     contactPoint: [
       {
         "@type": "ContactPoint",
-        email: "info@vortexgroup.xyz",
+        email: "info@vortexchain.xyz",
         contactType: "customer support",
       },
     ],
@@ -36,7 +36,7 @@ export default function SeoSchemas() {
   const softwareAppSchemaDex = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Vortex Web DEX",
+    name: "VortexChain Web DEX",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Web",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -50,7 +50,7 @@ export default function SeoSchemas() {
   const softwareAppSchemaExtension = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Vortex Chrome Extension",
+    name: "VortexChain Chrome Extension",
     applicationCategory: "FinanceApplication",
     operatingSystem: "Chrome",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
