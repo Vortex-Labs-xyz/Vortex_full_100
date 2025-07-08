@@ -19,10 +19,10 @@ export default function LanguageSwitcher() {
   ]
 
   return (
-    <div className="relative flex items-center rounded-pill border border-border bg-bgSubtle p-1">
+    <div className="relative flex items-center rounded-full border border-gray-200 bg-gray-50 p-1 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
       {/* Active indicator */}
       <div 
-        className="absolute inset-y-1 w-[calc(50%-4px)] rounded-pill bg-surface shadow-soft transition-transform duration-300"
+        className="absolute inset-y-1 w-[calc(50%-4px)] rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-in-out"
         style={{
           transform: activeLang === "DE" ? "translateX(calc(100% + 8px))" : "translateX(0)",
         }}
@@ -33,10 +33,10 @@ export default function LanguageSwitcher() {
           key={lang.code}
           href={lang.getHref()}
           scroll={false}
-          className={`relative z-10 rounded-pill px-3 py-1 text-xs font-medium transition-colors duration-300 ${
+          className={`relative z-10 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20 ${
             activeLang === lang.code 
-              ? "text-text" 
-              : "text-textSub hover:text-text"
+              ? "text-[#111]" 
+              : "text-[#4a4a4a] hover:text-[#111]"
           }`}
         >
           {lang.code}

@@ -1,18 +1,18 @@
 export const features = [
   {
-    title: "Autonome Aufgaben-Erledigung",
-    text: "Definieren Sie Ziele und unsere KI-Agenten erledigen die Aufgaben selbstständig – von der Dateneingabe bis zur komplexen Analyse.",
+    title: "Autonomous Task Execution",
+    text: "Define goals and our AI agents handle tasks independently – from data entry to complex analysis.",
   },
   {
-    title: "Nahtlose Integration",
-    text: "Verbinden Sie unsere Cloud-Mitarbeiter mit hunderten von Apps wie Slack, Google Workspace und Salesforce, um Ihre Prozesse zu automatisieren.",
+    title: "Seamless Integration",
+    text: "Connect our cloud workers with hundreds of apps like Slack, Google Workspace, and Salesforce to automate your processes.",
   },
   {
-    title: "24/7 Produktivität",
-    text: "Ihre neuen Mitarbeiter werden nie müde. Sie arbeiten rund um die Uhr, um sicherzustellen, dass Ihre Geschäftsabläufe reibungslos funktionieren.",
+    title: "24/7 Productivity",
+    text: "Your new employees never get tired. They work around the clock to ensure your business operations run smoothly.",
   },
   {
-    title: "Lernfähig & Adaptiv",
-    text: "Jeder Agent lernt aus Interaktionen und Feedback, um seine Leistung kontinuierlich zu verbessern und sich an neue Herausforderungen anzupassen.",
+    title: "Learning & Adaptive",
+    text: "Each agent learns from interactions and feedback to continuously improve performance and adapt to new challenges.",
   },
 ]

@@ -12,6 +12,10 @@ export interface PostMeta {
   cover: string
 }
 
+export interface PostWithContent extends PostMeta {
+  content: string
+}
+
 export function getPostMetaBySlug(slug: string): PostMeta {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`)
   const fileContents = fs.readFileSync(fullPath, "utf8")
@@ -19,6 +23,18 @@ export function getPostMetaBySlug(slug: string): PostMeta {
 
   return {
     slug,
+    ...(data as { title: string; date: string; excerpt: string; cover: string }),
+  }
+}
+
+export function getPostWithContentBySlug(slug: string): PostWithContent {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+  const fileContents = fs.readFileSync(fullPath, "utf8")
+  const { data, content } = matter(fileContents)
+
+  return {
+    slug,
+    content,
     ...(data as { title: string; date: string; excerpt: string; cover: string }),
   }
 }

@@ -1,7 +1,7 @@
 export const productMeta = {
   bot: {
     title: "Rust Rocket – Telegram Sniper Bot for Solana",
-    desc: "Snipe token launches in < 400 ms. Zero custody, 0.75 % fee, built in Rust.",
+    desc: "Snipe token launches in < 400 ms. Zero custody, 0.75 % fee, built in Rust.",
   },
   dex: {
     title: "Vortex Web DEX – Advanced Solana Trading",
@@ -10,5 +10,13 @@ export const productMeta = {
   extension: {
     title: "Chrome Extension – Snipe & Trade Anywhere",
     desc: "Trade directly on launch pages, manage your portfolio on-the-fly.",
+  },
+  leaderboard: {
+    title: "Vortex Leaderboard – Track Trading Performance",
+    desc: "Compete with top traders, track PnL performance, and earn exclusive rewards.",
+  },
+  launchpad: {
+    title: "Vortex Launchpad – MiCA-Compliant Token Launch Platform",
+    desc: "Launch your Solana token in 24 hours with automated white-paper workflow and regulatory compliance.",
   },
 }

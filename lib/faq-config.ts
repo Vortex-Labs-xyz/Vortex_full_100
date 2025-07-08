@@ -45,4 +45,38 @@ export const faqData: Record<string, FaqItem[]> = {
         "Yes, the extension is designed to overlay on any webpage. When it detects a Solana token address, it allows you to initiate a trade directly from that page without navigating away.",
     },
   ],
+  leaderboard: [
+    {
+      question: "How is the leaderboard ranking calculated?",
+      answer:
+        "Rankings are based on verified PnL (Profit and Loss) performance over different time periods. We track wallet performance across all connected trading activities and update rankings in real-time.",
+    },
+    {
+      question: "What rewards are available for top performers?",
+      answer:
+        "Top performers receive exclusive benefits including reduced trading fees, early access to new features, special Discord roles, and eligibility for monthly cash prizes and NFT rewards.",
+    },
+    {
+      question: "Is my trading data private?",
+      answer:
+        "Yes, only your wallet address and PnL performance are displayed publicly. All other trading details remain private. You can opt out of the leaderboard at any time while still using other Vortex features.",
+    },
+  ],
+  launchpad: [
+    {
+      question: "What does MiCA compliance mean for token launches?",
+      answer:
+        "MiCA (Markets in Crypto-Assets) is EU regulation for digital assets. Our platform ensures your token launch meets all regulatory requirements, including proper documentation, risk disclosures, and compliance frameworks.",
+    },
+    {
+      question: "How long does the token launch process take?",
+      answer:
+        "The entire process from submission to live trading takes approximately 24 hours. This includes automated white-paper generation, compliance checks, liquidity setup, and market deployment.",
+    },
+    {
+      question: "What are the fees for launching a token?",
+      answer:
+        "We charge a flat 0.2% fee on the initial token supply. This covers all compliance documentation, regulatory filing, smart contract deployment, and ongoing platform support.",
+    },
+  ],
 }

@@ -34,11 +34,11 @@ export default function FeaturesSection() {
     <Section background="default" size="large">
       <div className="mx-auto max-w-2xl lg:text-center">
         <Heading as="h2" align="center" className="animate-fadeInUp">
-          Alles, was Sie für eine autonome Belegschaft brauchen
+          Everything you need for an autonomous workforce
         </Heading>
         <p className="mt-6 text-lg leading-8 text-textSub animate-fadeInUp animation-delay-100">
-          Unsere Cloud-Mitarbeiter integrieren sich nahtlos in Ihre bestehenden Workflows und übernehmen
-          wiederkehrende Aufgaben, damit Sie sich auf das Wesentliche konzentrieren können.
+          Our cloud workers integrate seamlessly into your existing workflows and take over
+          recurring tasks so you can focus on what matters most.
         </p>
       </div>
       <div className="mx-auto mt-16 grid max-w-lg gap-10 lg:max-w-none md:grid-cols-2">

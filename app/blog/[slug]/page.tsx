@@ -1,6 +1,5 @@
-import { getPostMetaBySlug, getSortedPostsData, getAllPostSlugs } from "@/lib/blog"
+import { getPostMetaBySlug, getPostWithContentBySlug, getSortedPostsData, getAllPostSlugs } from "@/lib/blog"
 import { notFound } from "next/navigation"
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = getPostMetaBySlug(params.slug)
+  const post = getPostWithContentBySlug(params.slug)
   if (!post) {
     return notFound()
   }
@@ -69,7 +68,24 @@ export default async function PostPage({ params }: { params: { slug: string } })
     day: "numeric",
   })
 
-  const PostContent = dynamic(() => import(`@/content/blog/${params.slug}.mdx`))
+  // Simple markdown to HTML conversion for basic formatting
+  const formatContent = (content: string) => {
+    return content
+      .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+      .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+      .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+      .replace(/^\*\*(.*)\*\*$/gm, '<strong>$1</strong>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/^\* (.*$)/gm, '<li>$1</li>')
+      .replace(/^- (.*$)/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/^(?!<[h|u|l])/gm, '<p>')
+      .replace(/(?<!>)$/gm, '</p>')
+      .replace(/<p><\/p>/g, '')
+      .replace(/<p>(<[h|u])/g, '$1')
+      .replace(/(<\/[h|u]>)<\/p>/g, '$1')
+  }
 
   return (
     <>
@@ -89,7 +105,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
           </div>
 
           <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 py-16 prose-headings:text-text prose-a:text-accent hover:prose-a:text-accent/80 prose-strong:text-text">
-            <PostContent />
+            <div dangerouslySetInnerHTML={{ __html: formatContent(post.content) }} />
           </div>
         </article>
 

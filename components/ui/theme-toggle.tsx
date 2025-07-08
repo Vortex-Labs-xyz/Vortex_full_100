@@ -15,7 +15,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     return (
       <button
         className={cn(
-          "p-2 rounded-lg bg-bgSubtle text-textSub",
+          "w-10 h-10 rounded-full bg-gray-50 text-[#4a4a4a] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-150 ease-in-out flex items-center justify-center",
           className
         )}
         aria-label="Toggle theme"
@@ -29,7 +29,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <button
       onClick={toggleTheme}
       className={cn(
-        "p-2 rounded-lg bg-bgSubtle hover:bg-border text-text transition-colors",
+        "w-10 h-10 rounded-full bg-gray-50 hover:bg-gray-100 text-[#111] hover:text-accent transition-all duration-150 ease-in-out hover:scale-105 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20 flex items-center justify-center",
         className
       )}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}

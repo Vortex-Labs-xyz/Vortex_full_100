@@ -35,7 +35,7 @@ export default function LatestPosts() {
   return (
     <section className="bg-bg py-16 sm:py-24">
       <div className="container mx-auto max-w-6xl px-4">
-        <h2 className="text-center text-3xl font-bold text-text mb-12">Unsere neuesten Beiträge</h2>
+        <h2 className="text-center text-3xl font-bold text-text mb-12">Our Latest Posts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
@@ -46,7 +46,7 @@ export default function LatestPosts() {
             href="/blog"
             className="inline-flex items-center gap-2 font-medium text-text hover:text-textSub transition-colors"
           >
-            Alle Beiträge ansehen <ArrowRight className="h-4 w-4" />
+            View all posts <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

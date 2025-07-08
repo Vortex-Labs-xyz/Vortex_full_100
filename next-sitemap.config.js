@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: "https://vortex.group",
   generateRobotsTxt: true,
   exclude: ["/api/*"],
-  // HINWEIS: `next-sitemap` erkennt Bilder (`<img>`-Tags) auf Ihren Seiten
-  // automatisch und fügt sie der Sitemap hinzu. Eine separate Option
-  // `generateImageSitemap` ist nicht mehr notwendig.
+  // NOTE: `next-sitemap` automatically detects images (`<img>` tags) on your pages
+  // and adds them to the sitemap. A separate `generateImageSitemap` option
+  // is no longer necessary.
 }

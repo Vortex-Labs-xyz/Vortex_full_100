@@ -1,9 +1,9 @@
 "use client"
-import Image from "next/image"
 import { products } from "@/lib/products-config"
 import RocketLaunchIcon from "@/components/icons/RocketLaunchIcon"
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { Section } from "@/components/ui/section"
+import { ProductCard } from "@/components/ui/product-card"
 
 function ComingSoonModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   if (!isOpen) return null
@@ -36,76 +36,37 @@ function ComingSoonModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
 export default function AlternatingFeatures() {
   const [showComingSoon, setShowComingSoon] = useState(false)
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fadeInUp")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card)
-    })
-
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <>
-      <Section background="subtle" size="large">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:gap-12">
-          {products.map((product, index) => (
-            <div
-              key={product.id}
-              ref={(el) => {
-                cardsRef.current[index] = el
-              }}
-              className="group relative opacity-0"
-            >
-              <a
-                href={product.href}
-                className="relative block h-full rounded-card bg-surface border border-border p-6 transition-all duration-300 hover:shadow-lift hover:-translate-y-1"
-              >
-                <div className="absolute -inset-px rounded-card bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                {product.badge && (
-                  <span className="absolute top-4 right-4 z-10 rounded-pill bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
-                    {product.badge}
-                  </span>
-                )}
-                <div className="aspect-[4/3] relative overflow-hidden rounded-md mb-6">
-                  {product.id === "launchpad" ? (
-                    <div className="flex items-center justify-center h-full bg-bgSubtle">
-                      <RocketLaunchIcon className="h-24 w-24 text-textSub group-hover:text-accent transition-colors duration-300" />
-                    </div>
-                  ) : (
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.alt || `${product.title} interface`}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  )}
-                </div>
-                <div className="flex gap-2 mb-4">
-                  {product.icons.map((icon, i) => (
-                    <div key={i} className="bg-bgSubtle rounded-full p-1.5">
-                      <Image src={icon || "/placeholder.svg"} alt="" width={20} height={20} />
-                    </div>
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-text mb-2">{product.title}</h3>
-                <p className="text-textSub leading-relaxed mb-4 flex-grow">{product.subtitle}</p>
-                <span className="font-medium text-sm text-accent group-hover:underline">{product.ctaText}</span>
-              </a>
+      <Section background="default" size="large">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 p-8 relative overflow-hidden">
+            {/* Subtle background pattern */}
+            <div className="absolute inset-0 opacity-[0.02] bg-gradient-to-br from-accent via-transparent to-blue-400 pointer-events-none" />
+            
+            {/* Header */}
+            <div className="relative z-10 text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                Our Product Suite
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Comprehensive trading tools designed for speed, security, and seamless execution on Solana
+              </p>
             </div>
-          ))}
+            
+            {/* Product Cards */}
+            <div className="relative z-10 space-y-6">
+          {products.map((product, index) => (
+                <ProductCard
+              key={product.id}
+                  product={product}
+                  index={index}
+                  showDivider={index < products.length - 1}
+                />
+                  ))}
+            </div>
+          </div>
         </div>
       </Section>
       
