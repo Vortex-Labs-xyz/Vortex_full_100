@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root[data-theme="light"] {
+    /* Light theme - warmwind.space inspired */
+    --bg: 0 0% 98%; /* #fafafa grey canvas */
+    --bg-subtle: 0 0% 96%;
+    --surface: 0 0% 100%; /* white cards */
+    --text: 0 0% 9%;
+    --text-sub: 0 0% 45%;
+    --border: 0 0% 91%;
+    --accent: 168 84% 42%; /* teal */
+    --accent-soft: 168 60% 95%; /* pastel teal */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Keep existing shadcn tokens for compatibility */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 168 84% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 0 0% 91%;
+    --ring: 168 84% 42%;
+    --radius: 0.5rem;
+  }
+
+  :root[data-theme="dark"] {
+    /* Dark theme - existing FinTech mode */
+    --bg: 0 0% 2%; /* #050505 */
+    --bg-subtle: 0 0% 7%;
+    --surface: 0 0% 9%;
+    --text: 0 0% 90%;
+    --text-sub: 0 0% 64%;
+    --border: 0 0% 15%;
+    --accent: 168 100% 47%; /* bright teal */
+    --accent-soft: 168 60% 20%;
+    --accent-foreground: 0 0% 9%;
+    
+    /* Keep existing shadcn tokens */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 90%;
+    --input: 0 0% 15%;
+    --ring: 168 100% 47%;
+  }
+
+  /* Default to dark theme */
+  :root {
+    /* Dark theme - existing FinTech mode */
+    --bg: 0 0% 2%; /* #050505 */
+    --bg-subtle: 0 0% 7%;
+    --surface: 0 0% 9%;
+    --text: 0 0% 90%;
+    --text-sub: 0 0% 64%;
+    --border: 0 0% 15%;
+    --accent: 168 100% 47%; /* bright teal */
+    --accent-soft: 168 60% 20%;
+    --accent-foreground: 0 0% 9%;
+    
+    /* Keep existing shadcn tokens */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 90%;
+    --input: 0 0% 15%;
+    --ring: 168 100% 47%;
+  }
+
+  .dark {
+    /* Dark theme values - same as above */
+    --bg: 0 0% 2%;
+    --bg-subtle: 0 0% 7%;
+    --surface: 0 0% 9%;
+    --text: 0 0% 90%;
+    --text-sub: 0 0% 64%;
+    --border: 0 0% 15%;
+    --accent: 168 100% 47%;
+    --accent-soft: 168 60% 20%;
+    --accent-foreground: 0 0% 9%;
+    --background: 0 0% 2%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 90%;
+    --input: 0 0% 15%;
+    --ring: 168 100% 47%;
+  }
+
+  html,
+  body {
+    @apply bg-bg text-text antialiased;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography styles */
+  h1 {
+    @apply text-5xl font-bold leading-tight tracking-tight text-text;
+  }
+  
+  h2 {
+    @apply text-4xl font-bold leading-tight tracking-tight text-text;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold leading-snug tracking-tight text-text;
+  }
+  
+  h4 {
+    @apply text-xl font-semibold leading-snug text-text;
+  }
+  
+  h5 {
+    @apply text-lg font-semibold leading-normal text-text;
+  }
+  
+  h6 {
+    @apply text-base font-semibold leading-normal text-text;
+  }
+  
+  /* Responsive heading sizes */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-4xl;
+    }
+    
+    h2 {
+      @apply text-3xl;
+    }
+    
+    h3 {
+      @apply text-xl;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    @apply text-textSub leading-relaxed;
+    line-height: 1.6;
+  }
+  
+  /* Links */
+  a {
+    @apply transition-colors;
+  }
+}
+
+/* CSS Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  /* Focus ring style */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-[3px] focus:ring-accent-soft;
+  }
+  
+  /* Card lift effect */
+  .card-lift {
+    @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lift;
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,48 @@
+interface FaqItem {
+  question: string
+  answer: string
+}
+
+export const faqData: Record<string, FaqItem[]> = {
+  bot: [
+    {
+      question: "Is the Rust Rocket Bot custodial?",
+      answer:
+        "No. The bot operates on a fully non-custodial basis. Your private keys are stored encrypted on your local device and are never shared with our servers. You maintain full control over your assets at all times.",
+    },
+    {
+      question: "What fees apply for the bot?",
+      answer:
+        "The Rust Rocket Bot has a simple, transparent fee structure. We charge a flat 0.75% fee on profitable trades only. There are no subscription fees or charges for unprofitable trades.",
+    },
+    {
+      question: "Which Solana wallets are supported?",
+      answer:
+        "You can import any standard Solana wallet using its private key. The bot is compatible with wallets created in Phantom, Solflare, and other popular Solana wallet providers.",
+    },
+  ],
+  dex: [
+    {
+      question: "How does the Vortex Web DEX ensure best-price execution?",
+      answer:
+        "Our smart order router automatically splits your trades across multiple liquidity pools, including Raydium and Orca, to find the most efficient path and minimize price impact, ensuring you get the best possible rate.",
+    },
+    {
+      question: "Are there fees for using the Web DEX?",
+      answer:
+        "The Vortex Web DEX itself does not charge any platform fees for swapping. You only pay the standard Solana network fees and any fees associated with the underlying liquidity pools you interact with.",
+    },
+  ],
+  extension: [
+    {
+      question: "How does the Chrome Extension protect me from malicious sites?",
+      answer:
+        "The extension includes a built-in transaction simulation feature. Before you approve any transaction, it shows you exactly what assets will leave your wallet, helping you avoid drainer scams.",
+    },
+    {
+      question: "Can I use the extension to trade on any website?",
+      answer:
+        "Yes, the extension is designed to overlay on any webpage. When it detects a Solana token address, it allows you to initiate a trade directly from that page without navigating away.",
+    },
+  ],
+}
