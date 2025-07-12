@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Host
+Host: https://vortexgroup.xyz
+
+# Sitemaps
+Sitemap: https://vortexgroup.xyz/sitemap.xml

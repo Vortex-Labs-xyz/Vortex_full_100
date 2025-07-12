@@ -1,0 +1,26 @@
+{
+  "name": "VortexGroup - Non-Custodial Solana Trading",
+  "short_name": "VortexGroup",
+  "description": "Trade on Solana at millisecond latency. Own your keys. Telegram bot · Web DEX · Chrome extension. MiCA-ready.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#14b8a6",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

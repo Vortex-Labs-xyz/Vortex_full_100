@@ -24,9 +24,9 @@ export function PostCard({ post }: { post: PostMeta }) {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <p className="text-xs text-textSub mb-2">{formattedDate}</p>
-        <h3 className="font-bold text-text mb-2 leading-snug line-clamp-2">{post.title}</h3>
-        <p className="text-sm text-textSub leading-relaxed line-clamp-3 flex-grow">{post.excerpt}</p>
+        <p className="text-xs text-textSub mb-2 font-inter">{formattedDate}</p>
+        <h3 className="font-bold text-text mb-2 leading-snug line-clamp-2 font-lexend">{post.title}</h3>
+        <p className="text-sm text-textSub leading-relaxed line-clamp-3 flex-grow font-inter">{post.excerpt}</p>
       </div>
     </Link>
   )

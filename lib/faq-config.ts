@@ -23,14 +23,14 @@ export const faqData: Record<string, FaqItem[]> = {
   ],
   dex: [
     {
-      question: "How does the VortexChain Web DEX ensure best-price execution?",
+      question: "How does the Vortex Group Web DEX ensure best-price execution?",
       answer:
-        "Our smart order router automatically splits your trades across multiple liquidity pools, including Raydium and Orca, to find the most efficient path and minimize price impact, ensuring you get the best possible rate.",
+        "Our Web DEX aggregates liquidity from multiple sources including Raydium, Orca, and other major Solana AMMs. We use intelligent routing algorithms to split large orders across multiple pools when beneficial, ensuring you get the best possible price with minimal slippage.",
     },
     {
-      question: "Are there fees for using the Web DEX?",
+      question: "Are there any fees for using the Web DEX?",
       answer:
-        "The VortexChain Web DEX itself does not charge any platform fees for swapping. You only pay the standard Solana network fees and any fees associated with the underlying liquidity pools you interact with.",
+        "The Vortex Group Web DEX itself does not charge any platform fees for swapping. You only pay the standard Solana network fees and any fees associated with the underlying liquidity pools you interact with.",
     },
   ],
   extension: [

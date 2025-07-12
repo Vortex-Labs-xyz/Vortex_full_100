@@ -57,7 +57,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     
     return (
       <Component
-        ref={ref as any}
+        ref={ref as React.Ref<HTMLDivElement>}
         className={cn(sectionVariants({ size, background }), className)}
         {...props}
       >

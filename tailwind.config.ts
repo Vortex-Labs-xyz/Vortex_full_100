@@ -17,6 +17,10 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)", "sans-serif"],
+        lexend: ["var(--font-lexend)", "sans-serif"],
+      },
       colors: {
         bg: "hsl(var(--bg))",
         bgSubtle: "hsl(var(--bg-subtle))",

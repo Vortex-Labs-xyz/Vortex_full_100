@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   return getAllPostSlugs()
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPostMetaBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPostMetaBySlug(slug)
   if (!post) {
     return notFound()
   }
@@ -20,13 +21,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vortexchain.xyz" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://vortexchain.xyz/blog" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vortexgroup.xyz" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://vortexgroup.xyz/blog" },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://vortexchain.xyz/blog/${params.slug}`,
+        item: `https://vortexgroup.xyz/blog/${slug}`,
       },
     ],
   }
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `/blog/${params.slug}`,
+      canonical: `/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
@@ -53,8 +54,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = getPostWithContentBySlug(params.slug)
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPostWithContentBySlug(slug)
   if (!post) {
     return notFound()
   }
@@ -93,9 +95,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <main className="bg-bg pt-24 sm:pt-32">
         <article>
           <header className="container mx-auto max-w-3xl px-4 text-center py-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">VortexChain Insights</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text leading-tight">{post.title}</h1>
-            <p className="mt-4 text-textSub">{formattedDate}</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4 font-inter">VortexGroup Insights</p>
+            <h1 className="text-hero">{post.title}</h1>
+            <p className="mt-6 text-textSub text-lg font-inter">{formattedDate}</p>
           </header>
 
           <div className="container mx-auto max-w-5xl px-4">
@@ -104,14 +106,14 @@ export default async function PostPage({ params }: { params: { slug: string } })
             </div>
           </div>
 
-          <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 py-16 prose-headings:text-text prose-a:text-accent hover:prose-a:text-accent/80 prose-strong:text-text">
+          <div className="blog-content mx-auto max-w-3xl px-4 py-16">
             <div dangerouslySetInnerHTML={{ __html: formatContent(post.content) }} />
           </div>
         </article>
 
         <section className="bg-bgSubtle py-16 sm:py-24 border-t border-border">
           <div className="container mx-auto max-w-6xl px-4">
-            <h2 className="text-center text-3xl font-bold text-text mb-12">Related Posts</h2>
+            <h2 className="text-center text-display mb-12">Related Posts</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedPosts.map((p) => (
                 <PostCard key={p.slug} post={p} />

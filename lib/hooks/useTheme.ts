@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 type Theme = "light" | "dark"
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>("dark")
+  const [theme, setTheme] = useState<Theme>("light")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export function useTheme() {
     
     // Check localStorage and system preference
     const stored = localStorage.getItem("theme") as Theme | null
-    const systemPreference = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"
+    const systemPreference = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
     
     const initialTheme = stored || systemPreference
     setTheme(initialTheme)
@@ -47,11 +47,13 @@ export function useTheme() {
 export const themeScript = `
   (function() {
     const stored = localStorage.getItem('theme');
-    const systemPreference = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     const theme = stored || systemPreference;
     document.documentElement.setAttribute('data-theme', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   })();
 ` 

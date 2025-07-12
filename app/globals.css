@@ -66,36 +66,37 @@
     --ring: 168 100% 47%;
   }
 
-  /* Default to dark theme */
+  /* Default to light theme */
   :root {
-    /* Dark theme - existing FinTech mode */
-    --bg: 0 0% 2%; /* #050505 */
-    --bg-subtle: 0 0% 7%;
-    --surface: 0 0% 9%;
-    --text: 0 0% 90%;
-    --text-sub: 0 0% 64%;
-    --border: 0 0% 15%;
-    --accent: 168 100% 47%; /* bright teal */
-    --accent-soft: 168 60% 20%;
-    --accent-foreground: 0 0% 9%;
+    /* Light theme - warmwind.space inspired */
+    --bg: 0 0% 98%; /* #fafafa grey canvas */
+    --bg-subtle: 0 0% 96%;
+    --surface: 0 0% 100%; /* white cards */
+    --text: 0 0% 9%;
+    --text-sub: 0 0% 45%;
+    --border: 0 0% 91%;
+    --accent: 168 84% 42%; /* teal */
+    --accent-soft: 168 60% 95%; /* pastel teal */
+    --accent-foreground: 0 0% 100%;
     
-    /* Keep existing shadcn tokens */
-    --background: 0 0% 2%;
-    --foreground: 0 0% 90%;
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 90%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 90%;
-    --primary: 0 0% 90%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 90%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 90%;
-    --input: 0 0% 15%;
-    --ring: 168 100% 47%;
+    /* Keep existing shadcn tokens for compatibility */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 168 84% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 0 0% 91%;
+    --ring: 168 84% 42%;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -135,32 +136,66 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography styles */
+  /* Typography styles with improved hierarchy */
   h1 {
-    @apply text-5xl font-bold leading-tight tracking-tight text-text;
+    @apply text-6xl font-bold leading-tight tracking-tight text-text;
+    font-family: var(--font-lexend);
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
   
   h2 {
-    @apply text-4xl font-bold leading-tight tracking-tight text-text;
+    @apply text-5xl font-bold leading-tight tracking-tight text-text;
+    font-family: var(--font-lexend);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
   
   h3 {
-    @apply text-2xl font-bold leading-snug tracking-tight text-text;
+    @apply text-3xl font-semibold leading-snug tracking-tight text-text;
+    font-family: var(--font-lexend);
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
   
   h4 {
-    @apply text-xl font-semibold leading-snug text-text;
+    @apply text-2xl font-semibold leading-snug text-text;
+    font-family: var(--font-lexend);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
   
   h5 {
-    @apply text-lg font-semibold leading-normal text-text;
+    @apply text-xl font-semibold leading-normal text-text;
+    font-family: var(--font-lexend);
+    font-weight: 500;
   }
   
   h6 {
-    @apply text-base font-semibold leading-normal text-text;
+    @apply text-lg font-semibold leading-normal text-text;
+    font-family: var(--font-lexend);
+    font-weight: 500;
   }
   
   /* Responsive heading sizes */
+  @media (max-width: 768px) {
+    h1 {
+      @apply text-5xl;
+    }
+    
+    h2 {
+      @apply text-4xl;
+    }
+    
+    h3 {
+      @apply text-2xl;
+    }
+    
+    h4 {
+      @apply text-xl;
+    }
+  }
+
   @media (max-width: 640px) {
     h1 {
       @apply text-4xl;
@@ -175,27 +210,210 @@
     }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
   p {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
     font-weight: 400;
     @apply text-textSub leading-relaxed;
-    line-height: 1.6;
+    line-height: 1.7;
+  }
+  
+  /* Enhanced text styles */
+  .text-hero {
+    @apply text-6xl font-bold leading-tight tracking-tight text-text;
+    font-family: var(--font-lexend);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: linear-gradient(135deg, hsl(var(--text)), hsl(var(--text)) 40%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-display {
+    @apply text-5xl font-semibold leading-tight tracking-tight text-text;
+    font-family: var(--font-lexend);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-body-large {
+    @apply text-xl leading-relaxed text-textSub;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  .text-body {
+    @apply text-base leading-relaxed text-textSub;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  .text-caption {
+    @apply text-sm leading-normal text-textSub;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    line-height: 1.5;
   }
   
   /* Links */
   a {
     @apply transition-colors;
+  }
+
+  /* Blog content styling */
+  .blog-content {
+    @apply text-textSub leading-relaxed;
+    font-family: var(--font-inter);
+    line-height: 1.7;
+  }
+  
+  .blog-content h1 {
+    @apply text-5xl font-bold leading-tight tracking-tight text-text mt-12 mb-6;
+    font-family: var(--font-lexend);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .blog-content h2 {
+    @apply text-4xl font-semibold leading-tight tracking-tight text-text mt-10 mb-5;
+    font-family: var(--font-lexend);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .blog-content h3 {
+    @apply text-3xl font-semibold leading-snug tracking-tight text-text mt-8 mb-4;
+    font-family: var(--font-lexend);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  
+  .blog-content h4 {
+    @apply text-2xl font-semibold leading-snug text-text mt-6 mb-3;
+    font-family: var(--font-lexend);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  
+  .blog-content h5 {
+    @apply text-xl font-semibold leading-normal text-text mt-6 mb-3;
+    font-family: var(--font-lexend);
+    font-weight: 500;
+  }
+  
+  .blog-content h6 {
+    @apply text-lg font-semibold leading-normal text-text mt-4 mb-2;
+    font-family: var(--font-lexend);
+    font-weight: 500;
+  }
+  
+  .blog-content p {
+    @apply text-textSub leading-relaxed mb-6;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  .blog-content ul,
+  .blog-content ol {
+    @apply text-textSub leading-relaxed mb-6 pl-6;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  .blog-content li {
+    @apply mb-2;
+  }
+  
+  .blog-content ul li {
+    @apply relative;
+    list-style: none;
+  }
+  
+  .blog-content ul li:before {
+    content: "•";
+    color: hsl(var(--accent));
+    font-weight: 600;
+    position: absolute;
+    left: -1.5rem;
+  }
+  
+  .blog-content ol li {
+    list-style: decimal;
+    color: hsl(var(--accent));
+  }
+  
+  .blog-content strong {
+    @apply text-text font-semibold;
+    font-family: var(--font-inter);
+    font-weight: 600;
+  }
+  
+  .blog-content em {
+    @apply text-text italic;
+    font-family: var(--font-inter);
+  }
+  
+  .blog-content a {
+    @apply text-accent hover:text-accent/80 transition-colors underline underline-offset-2;
+    font-family: var(--font-inter);
+    font-weight: 500;
+  }
+  
+  .blog-content blockquote {
+    @apply border-l-4 border-accent pl-6 py-4 my-6 bg-bgSubtle rounded-r-lg;
+    font-style: italic;
+    color: hsl(var(--textSub));
+  }
+  
+  .blog-content code {
+    @apply bg-bgSubtle px-2 py-1 rounded text-accent text-sm;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
+  }
+  
+  .blog-content pre {
+    @apply bg-bgSubtle p-4 rounded-lg overflow-x-auto mb-6;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
+  }
+  
+  .blog-content pre code {
+    @apply bg-transparent p-0 text-text;
+  }
+  
+  /* Responsive typography for blog content */
+  @media (max-width: 768px) {
+    .blog-content h1 {
+      @apply text-4xl;
+    }
+    
+    .blog-content h2 {
+      @apply text-3xl;
+    }
+    
+    .blog-content h3 {
+      @apply text-2xl;
+    }
+    
+    .blog-content h4 {
+      @apply text-xl;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .blog-content h1 {
+      @apply text-3xl;
+    }
+    
+    .blog-content h2 {
+      @apply text-2xl;
+    }
+    
+    .blog-content h3 {
+      @apply text-xl;
+    }
   }
 }
 

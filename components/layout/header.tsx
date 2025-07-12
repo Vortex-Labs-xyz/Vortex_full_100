@@ -5,22 +5,22 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { useAnalytics } from "@/hooks/useAnalytics"
 
-const VortexChainLogo = () => (
-  <Image
-    src="/vortex-chain-logo.png"
-    alt="VortexChain Logo"
-    width={32}
-    height={32}
-    className="rounded-full"
-  />
-)
+import { ThemeToggleEnhanced } from "@/components/ui/theme-toggle-enhanced"
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { trackNavigation } = useAnalytics()
 
   const navItemClass = "px-4 py-2 text-sm font-medium text-[#111] hover:text-accent transition-all duration-150 ease-in-out rounded-full hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20"
+
+  const handleNavClick = (navItem: string, isMobile: boolean = false) => {
+    trackNavigation(navItem, isMobile ? "mobile_header" : "desktop_header")
+    if (isMobile) {
+      setIsMenuOpen(false)
+    }
+  }
 
   return (
     <>
@@ -33,18 +33,30 @@ function Header() {
               href="/" 
               className="flex items-center font-bold text-lg text-[#111] hover:scale-105 transition-transform duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20 rounded-full px-2 py-1"
             >
-              <VortexChainLogo />
-              <span className="ml-2">VortexChain</span>
+              <Image
+                src="/favicon-32x32.png"
+                alt="Vortex Group Logo"
+                width={32}
+                height={32}
+                className="rounded-full"
+              />
+              <span className="ml-2">Vortex Group</span>
             </Link>
 
             {/* Navigation - Right aligned */}
             <nav className="hidden md:flex items-center gap-2">
-              <Link href="/blog" className={navItemClass}>
-              Blog
+              <Link href="/products/bot" onClick={() => handleNavClick("Rust Rocket Bot")} className={navItemClass}>
+                Rust Rocket Bot
               </Link>
-            <a href="#" className={navItemClass}>
-                Careers
-            </a>
+              <Link href="/blog" onClick={() => handleNavClick("Blog")} className={navItemClass}>
+                Blog
+              </Link>
+              <Link href="/glossary" onClick={() => handleNavClick("Glossary")} className={navItemClass}>
+                Glossary
+              </Link>
+              <Link href="/faq" onClick={() => handleNavClick("FAQ")} className={navItemClass}>
+                FAQ
+              </Link>
               
               {/* Profile button - Circular */}
               <button 
@@ -58,7 +70,7 @@ function Header() {
               <div className="h-6 w-px bg-gray-200 mx-2" />
               
               {/* Theme Toggle */}
-              <ThemeToggle />
+              <ThemeToggleEnhanced />
               
               {/* Language Switcher */}
             <LanguageSwitcher />
@@ -92,17 +104,33 @@ function Header() {
       >
         <div className="p-6 flex flex-col gap-3">
           <Link 
+            href="/products/bot" 
+            onClick={() => handleNavClick("Rust Rocket Bot", true)}
+            className="text-[#111] font-medium hover:text-accent transition-all duration-150 ease-in-out rounded-full px-4 py-3 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20"
+          >
+            Rust Rocket Bot
+          </Link>
+          <Link 
             href="/blog" 
+            onClick={() => handleNavClick("Blog", true)}
             className="text-[#111] font-medium hover:text-accent transition-all duration-150 ease-in-out rounded-full px-4 py-3 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20"
           >
             Blog
           </Link>
-          <a 
-            href="#" 
+          <Link 
+            href="/glossary" 
+            onClick={() => handleNavClick("Glossary", true)}
             className="text-[#111] font-medium hover:text-accent transition-all duration-150 ease-in-out rounded-full px-4 py-3 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20"
           >
-            Careers
-          </a>
+            Glossary
+          </Link>
+          <Link 
+            href="/faq" 
+            onClick={() => handleNavClick("FAQ", true)}
+            className="text-[#111] font-medium hover:text-accent transition-all duration-150 ease-in-out rounded-full px-4 py-3 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20"
+          >
+            FAQ
+          </Link>
           <button 
             className="text-[#111] font-medium hover:text-accent transition-all duration-150 ease-in-out rounded-full px-4 py-3 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent/20 flex items-center gap-3 text-left"
           >
@@ -115,7 +143,7 @@ function Header() {
               <span className="text-sm font-medium text-[#4a4a4a]">Theme & Language</span>
             </div>
             <div className="flex items-center gap-3 mt-3">
-              <ThemeToggle />
+              <ThemeToggleEnhanced />
             <LanguageSwitcher />
             </div>
           </div>

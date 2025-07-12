@@ -4,6 +4,7 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Rocket, Smartphone, PlayCircle } from "lucide-react"
 import { Section } from "@/components/ui/section"
+import Image from "next/image"
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -30,7 +31,7 @@ const itemVariants: Variants = {
 
 const steps = [
   {
-    icon: Rocket,
+    icon: "image", // Special marker for image icon
     description: "First, you create your Rust Rocket workspace."
   },
   {
@@ -99,7 +100,17 @@ export default function HowToStartRustRocket() {
                   transition: { duration: 0.2 }
                 }}
               >
-                <step.icon className="w-8 h-8 text-accent" />
+                {step.icon === "image" ? (
+                  <Image
+                    src="/RR_favicon-32x32.png"
+                    alt="Rust Rocket Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-sm"
+                  />
+                ) : (
+                  <step.icon className="w-8 h-8 text-accent" />
+                )}
               </motion.div>
 
               {/* Content */}

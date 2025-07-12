@@ -30,7 +30,15 @@ function PostCard({ post }: { post: PostMeta }) {
 }
 
 export default function LatestPosts() {
-  const posts = getSortedPostsData().slice(0, 6)
+  const excludedSlugs = [
+    '2025-06-28_mica-countdown',
+    '2025-06-26_fpga-edge', 
+    '2025-06-20_global-node-footprint'
+  ]
+  
+  const posts = getSortedPostsData()
+    .filter(post => !excludedSlugs.includes(post.slug))
+    .slice(0, 6)
 
   return (
     <section className="bg-bg py-16 sm:py-24">
